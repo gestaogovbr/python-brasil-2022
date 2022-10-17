@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "graceful-wall-343513",
+    "private_key_id": "dd21c4914ae25bdfd21824280fc8706d2e629cf8",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1/6yDfd5urKSW\nJrxB7+7vH+Fcybu1a/TyyvN4ElIEIBz7Ml6edvgSXckyySCmJcq2Hu9ACXXncDdy\nq7l4cKH90BzQKQbG17pdOZZslGwMw0xVj9Lq0Ww4k5mhBHIiNFgf0Ii/ECmzB6bO\nNnnElmi+e0i2iA5Fu18QAr9VaMuBecPoF0qfERPislMynGOG7cCKeODd9wuGHueH\ny+scHX5X2xXtgO+T1fzumLvjVQCsEkZDc2IpA0UEhSeF2xjIAe+4ZBm3XGynw7+u\nZwXRV/RRDLEKvmGdNJ5DJNr5970N96KRe/AS8HrXJMwWg9c8eWc2W1WXHiwXPCht\nHtOwQHpFAgMBAAECggEANqz7PjuLndMm1OcJKoPy04rP0OjYB/5JRcF72EgktJGT\nM1HkBBY4m4fqYGP094Ul+4WambHd5mwbdEsruoeX2uDxLwYMP6NinQwmaTNDrKfl\nYFUHZ70Hlo2dGzbzNNxl1xT2Z/PqmxrC3XOXLFyFVihCZXfFVeSe//fbVETZ0mjo\nvWAdSiIMFxv7BxYr5V7V1MQmbUJ4AkA4Ca6D2IFiErfLeUtFnKj88WMuywwfxU9V\nFUmWXz9OxtmWqmgDV8U3gqGXnuFi3DpGUFAHNLzMLsngdQNKEwEHIt4JSvkia49s\nlONt8WTi+GNl53yaoyPrU3TybGcys4k7tH5jrzKRJwKBgQDplyYumDljoP4c2vqJ\nNXVepgSm+p1G0gn8yB18MsD49+ssTKvPPIgX9QVnkQvEnHha98FuzrQTO4PG4Gw3\nu68B+5xmuBCCaAuW64JfdRE+D/kzboKnEXAbY45KP3W17qplSx1/y/U/WWMLkfKh\nc0t25P9R8L5gRTyvifvdUmdBuwKBgQDHdXYXLhloJIaACikhlaBczPPD6TQBbcfY\n6scL8VKNtULpYvT1LG8GBBLKaez78J1rDoxvr1mW9KgVIlo6VS0exZnXsnvuIPDP\nhh8YjTRiy+PkSuY+Fq28SZAZ3AQvMzKVFVLCDWiQ17kTVr8K14U+m4kEe+gKqje0\nd+P+0S1z/wKBgBK71IwYGUIsPzUBOuaWKvuURPs/Ti3H2pUzV2oGiANvnqTG4WCV\ncjS5qd1MfK0f/2cMR68jVL3WIBNrHEK8AqUeEMUMLgbHYWaRLLuLH/7iORIu4ruT\nYnJP4bGCtWYJ5hCJnawKJ3kVKiRbaCIapQq8At4HeL0v0FYjstdlLHLRAoGAAdRA\n7ft9Pig/l4MAV4+AtfknLx+/W1f/YizdAG4JHMWRxIQkzO7IYdy9s19/TdwqBWZP\nwWJxRuIdfHwhKbHIRST4wTKg0lE5BB4twNLirRlDkL9jFySsGTLvgF01KJ2mlBlq\n9d6bm+BukQ/VlqrdTPKuMf1U5mwjMKN80sRmT08CgYEAkkdTlFT5aH1DEpgGzX1F\nRmI7kCOw/o+4SPcN1kGkHh4r9eSg9BM9A4/WdawZFThpl9MbobRTRI6z1r84qKkl\nT/OXuWevQdHa/sbVYqODJV9xoLgRVzn2Af0he2ITxuxfe5jie/B81V6+Ud9VC8wI\nfluD/kGs2xB0wgg31mg215g=\n-----END PRIVATE KEY-----\n",
+    "client_email": "airflow-python@graceful-wall-343513.iam.gserviceaccount.com",
+    "client_id": "113377482313508667054",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/airflow-python%40graceful-wall-343513.iam.gserviceaccount.com"
+  }
