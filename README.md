@@ -2,23 +2,23 @@
 
 Olá! Neste repositório estão os códigos e instruções da instalação e configuração do ambiente Airflow2 + FastETL para o evento a ser apresentado no **Python Brasil 2022 - FastETL, um pacote ETL para Airflow simples e prático**
 
-Este ambiente utiliza a versão do Airflow mantida pela equipe da SEGES/ME, com módulos e bibliotecas extras do python, além da extensão FastETL.
+Este ambiente utiliza a versão do Airflow mantida pela equipe da SEGES/ME, com módulos e bibliotecas extras do python, além da extensão FastETL. 
 
-Link da apresentação: https://docs.google.com/presentation/d/1X0pofeozy5w7ud0AsZWmZnjN4MwhuiI_60P28gE90vo/edit?usp=sharing
+Link da apresentação: https://docs.google.com/presentation/d/1X0pofeozy5w7ud0AsZWmZnjN4MwhuiI_60P28gE90vo/
 
 ## Preparação e execução do Airflow
 1.  Instalar Docker CE  [aqui!](https://docs.docker.com/get-docker/)
-
+    
     Obs.: É necessário que o  `docker-compose`  tenha versão mínima 1.29. No Ubuntu 20.04, recomenda-se instalar o docker a partir do gerenciador de pacotes  _snap_:
 
-> snap install docker
+> `snap install docker`
 
 2.  Clonar o repositório (https://github.com/economiagovbr/python-brasil-2022.git)  na máquina
-
+    
 
 >     git clone https://github.com/economiagovbr/python-brasil-2022.git
 
-
+    
 3.  Importar o repositório do FastETL (https://github.com/economiagovbr/python-brasil-2022.git)  dentro da pasta do repositório python-brasil-2022. Este plugin é contém algoritmos e extensões do Airflow inventados pela equipe para realizar tarefas repetitivas dentro das DAGs, como a **carga** de uma tabela entre BDs ou a **carga de uma planilha do google** em uma tabela no datalake.
 
 >     cd python-brasil-2022
@@ -26,7 +26,7 @@ Link da apresentação: https://docs.google.com/presentation/d/1X0pofeozy5w7ud0A
 
 4.  No Linux, os volumes montados no contêiner usam as permissões de usuário / grupo do sistema de arquivos Linux nativo, portanto, você deve certificar-se de que o contêiner e o computador host têm permissões de arquivo correspondentes.
 
-> echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env
+> `echo -e "AIRFLOW_UID=$(id -u)\nAIRFLOW_GID=0" > .env`
 
 5.  Dentro da pasta clonada (na raiz do arquivo Dockerfile), executar o comando para gerar a estrutura do banco do airflow local (Postgres)
 
@@ -37,7 +37,7 @@ Se o docker build retornar a mensagem  `error checking context: 'can't stat '/ho
 >     sudo chown -R <user-linux> mnt/pgdata
 
 6.  Para subir o Airflow execute:
->     docker-compose up
+>     docker-compose up 
 ou (-d para rodar em background)
 >     docker-compose up -d
 
@@ -54,10 +54,10 @@ ou (-d para rodar em background)
 ## Atividade - DbtoDbOperator - Criação dos databases de exemplo
 O operador DbtoDbOperator é um operador para o airflow responsável por replicar dados de tabelas entre SGBDs diferentes.
 
-Para podermos ver o Operador DbToDbOperator em ação, precisamos criar, a partir dos templates da pasta database_samples/, os databases com tabelas de exemplo para os SGBDs MYSQL, MSSQL e PostgreSQL.
+Para podermos ver o Operador DbToDbOperator em ação, precisamos criar, a partir dos templates da pasta database_samples/, os databases com tabelas de exemplo para os SGBDs MYSQL, MSSQL e PostgreSQL. 
 
 Esses datasets contém dados fictícios gerados através da plataforma [mockaroo.com](mockaroo.com)
-1. Instalar o DBeaver Community para consultas à base de dados.
+1. Instalar o DBeaver Community para consultas à base de dados. 
 
 * Caso não seja possível instalar o DBeaver, as consultas SQLs podem ser feitas acessando o container e executando as interfaces CLI dos SGBDs, exemplo *mysql, psql ou sqlcmd*.
 
@@ -93,7 +93,7 @@ Esses datasets contém dados fictícios gerados através da plataforma [mockaroo
 ## Atividade - LoadGSheetOperator - Configuração do Google API
 O operador LoadGSheetOperator é um operador para o airflow responsável por gravar dados de uma planilha do google sheets para uma tabela de um banco do SQL Server.
 
-Para podermos ver o operador LoadGSheetOperator em ação, precisamos configurar as credenciais do Google API no airflow. Pode-se copiar e colar o conteúdo do arquivo **google-api.json**, na pasta *conf/google-api.json*.
+Para podermos ver o operador LoadGSheetOperator em ação, precisamos configurar as credenciais do Google API no airflow. Pode-se copiar e colar o conteúdo do arquivo **google-api.json**, na pasta *conf/google-api.json*. 
 
 Se preferir, pode-se criar as próprias credenciais para conta de serviço de acesso à API (https://console.cloud.google.com/).
 
@@ -102,6 +102,10 @@ Se preferir, pode-se criar as próprias credenciais para conta de serviço de ac
 * Colar o conteúdo do JSON no campo password e Extra
 
 2. No arquivo **load_gsheet_dag.py**, incluir na constante GSHEET_METADATA os metadados de uma planilha do Google Sheets.
+ 
+3. Rodar a DAG **load_gsheet_dag** e verificar no DBeaver, no banco sampledatabase do MSSQL, se a tabela foi criada e populada com os mesmos dados da planilha Google.
 
-3. Rodar a DAG **load_gsheet_dag** e verificar no DBeaver, no banco sampledatabase do MSSQL, se a tabela foi criada e populada com os dados da planilha Google.
+## Para desligar o ambiente Airflow
+Na pasta raiz do projeto:
 
+> docker-compose down
