@@ -56,7 +56,7 @@ O operador DbtoDbOperator é um operador para o airflow responsável por replica
 
 Para podermos ver o Operador DbToDbOperator em ação, precisamos criar, a partir dos templates da pasta database_samples/, os databases com tabelas de exemplo para os SGBDs MYSQL, MSSQL e PostgreSQL. 
 
-Esses datasets contém dados fictícios gerados através da plataforma [mockaroo.com](mockaroo.com)
+Esses datasets contém dados fictícios gerados através da plataforma [mockaroo.com](https://mockaroo.com)
 1. Instalar o DBeaver Community para consultas à base de dados. 
 
 * Caso não seja possível instalar o DBeaver, as consultas SQLs podem ser feitas acessando o container e executando as interfaces CLI dos SGBDs, exemplo *mysql, psql ou sqlcmd*.
@@ -65,7 +65,7 @@ Esses datasets contém dados fictícios gerados através da plataforma [mockaroo
 
 2. Na pasta raiz, executar o script de CREATE database e CREATE tables:
 
-> ./init_databases
+> ./init_databases.sh
 
 3. Abrir o DBeaver CE e importar as conexões.
 
