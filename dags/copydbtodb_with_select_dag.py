@@ -1,7 +1,7 @@
 """
-DAG para teste do CopyDbToDb Operator.
+DAG para teste do CopyDbToDb Operator com select.
 
-Copia dados de tabelas de um banco MySQL para MSSQL e PostgreSQL
+Copia dados selecionados de tabelas de um banco MySQL para MSSQL e PostgreSQL
 """
 
 from datetime import datetime
@@ -25,7 +25,7 @@ default_args = {
 }
 
 with DAG(
-    'copydbtodb_test',
+    'copydbtodb_with_select_test',
     default_args=default_args,
     schedule_interval='30 * * * *',
     catchup=False,
@@ -41,29 +41,17 @@ with DAG(
     )
 
     t2 = CopyDbToDbOperator(
-        task_id=f"copy_full_people_MSSQL",
+        task_id=f"copy_full_people_MSSQL_with_select",
         source_conn_id=SOURCE_CONN_MYSQL,
         source_provider='MYSQL',
         source_table='sampledatabase.People',
+        select_sql="SELECT * FROM People WHERE country='Brazil'",
         destination_conn_id=DEST_CONN_MSSQL,
         destination_provider='MSSQL',
         destination_table='dbo.People',
         destination_truncate=True,
-        chunksize=50,
         dag=dag
     )
 
-    t3 = CopyDbToDbOperator(
-        task_id=f"copy_full_people_PG",
-        source_conn_id=SOURCE_CONN_MYSQL,
-        source_provider='MYSQL',
-        source_table='sampledatabase.People',
-        destination_conn_id=DEST_CONN_POSTGRES,
-        destination_provider='PG',
-        destination_table='public.people',
-        destination_truncate=True,
-        chunksize=50,
-        dag=dag
-    )
-
-    t1 >> [t2, t3]
+    # Orchestration
+    t1 >> t2

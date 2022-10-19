@@ -1,5 +1,5 @@
 """
-DAG Hello World
+DAG para rodar uma instrução de Update SQL em um banco MYSQL
 """
 
 from datetime import datetime
