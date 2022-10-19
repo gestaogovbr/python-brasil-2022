@@ -56,10 +56,18 @@ x-airflow-common:
     AIRFLOW__WEBSERVER__SECRET_KEY: '42'
     AIRFLOW__WEBSERVER__WORKERS: 1
     AIRFLOW__CORE__DAGBAG_IMPORT_TIMEOUT: 60
+    AIRFLOW__SMTP__SMTP_HOST: smtp4dev
+    # AIRFLOW__SMTP__SMTP_USER:
+    # AIRFLOW__SMTP__SMTP_PASSWORD:
+    AIRFLOW__SMTP__SMTP_STARTTLS: 'false'
+    AIRFLOW__SMTP__SMTP_PORT: 25
+    AIRFLOW__SMTP__SMTP_MAIL_FROM: airflow@domain.com
+    
   volumes:
     - ./dags:/opt/airflow/dags
     - ./FastETL:/opt/airflow/plugins/FastETL
     - /var/run/docker.sock:/var/run/docker.sock
+
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     postgres:
@@ -102,6 +110,15 @@ services:
     ports:
       - '3306:3306'
 
+  smtp4dev:
+    image: rnwood/smtp4dev:v3
+    restart: always
+    ports:
+      - '5000:80'
+      - '25:25' # Change the number before : to the port the SMTP server should be accessible on
+      - '143:143' # Change the number before : to the port the IMAP server should be accessible on
+    environment:
+      - ServerOptions__HostName=smtp4dev
 
   airflow-webserver:
     <<: *airflow-common
